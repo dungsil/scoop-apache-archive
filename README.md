@@ -1,0 +1,1 @@
+# Scoop for Apache archive

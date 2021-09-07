@@ -1,0 +1,29 @@
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'
+
+jobs:
+  auto-update:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          key: ${{ runner.os }}-cache
+          path: "~/scoop"
+      - name: Install Scoop
+        continue-on-error: true
+        run: |
+          Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+          iwr -useb get.scoop.sh | iex
+      - name: Version Check & Update
+        env:
+          SCOOP_HOME: "~/scoop/apps/scoop/current"
+        run: ./bin/checkver.ps1 * -u
+      - uses: EndBug/add-and-commit@v7
+        with:
+          add: 'bucket'
+          default_author: github_actions
+          message: "Bucket updates"
+          push: true

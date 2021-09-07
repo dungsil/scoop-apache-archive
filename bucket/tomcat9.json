@@ -1,0 +1,41 @@
+{
+    "homepage": "https://tomcat.apache.org",
+    "version": "9.0.52",
+    "checkver": {
+        "url": "https://archive.apache.org/dist/tomcat/tomcat-9/?C=M;O=D",
+        "re": "v(?<version>[\\d.]+)"
+    },
+    "autoupdate": {
+        "extract_dir": "apache-tomcat-$version",
+        "architecture": {
+            "32bit": {
+                "url": "https://archive.apache.org/dist/tomcat/tomcat-9/v$version/bin/apache-tomcat-$version-windows-x86.zip"
+            },
+            "64bit": {
+                "url": "https://archive.apache.org/dist/tomcat/tomcat-9/v$version/bin/apache-tomcat-$version-windows-x64.zip"
+            }
+        },
+        "hash": {
+            "url": "$url.sha512"
+        }
+    },
+    "extract_dir": "apache-tomcat-9.0.52",
+    "bin": "bin\\catalina.bat",
+    "env_set": {
+        "CATALINA_HOME": "$dir",
+        "CATALINA_BASE": "$dir"
+    },
+    "suggest": {
+        "JRE": "java/openjdk"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.52/bin/apache-tomcat-9.0.52-windows-x64.zip",
+            "hash": "sha512:a4ac4cc074872179b55d7c3839285b1ad2b7d7cff46c202ebebbafded68cc4c04001b20174d7aeb206c1fd99176353be127d01a9b206f9dcca815055491d320b"
+        },
+        "32bit": {
+            "url": "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.52/bin/apache-tomcat-9.0.52-windows-x86.zip",
+            "hash": "sha512:541c304bffa9025c4d7c3ebf4669de75f8b605970fbe81118972c903277d03565d2784db85d866e161c0eeefbcfd5ad02c43e6365ca3b164bb091832ebfa9935"
+        }
+    }
+}
