@@ -2,17 +2,17 @@
     "homepage": "https://tomcat.apache.org",
     "version": "8.5.70",
     "checkver": {
-        "url": "https://archive.apache.org/dist/tomcat/tomcat-8/?C=M;O=D",
+        "url": "https://www.apache.org/dist/tomcat/tomcat-8/?C=M;O=D",
         "re": "v(?<version>[\\d.]+)"
     },
     "autoupdate": {
         "extract_dir": "apache-tomcat-$version",
         "architecture": {
             "32bit": {
-                "url": "https://archive.apache.org/dist/tomcat/tomcat-8/v$version/bin/apache-tomcat-$version-windows-x86.zip"
+                "url": "https://www.apache.org/dist/tomcat/tomcat-8/v$version/bin/apache-tomcat-$version-windows-x86.zip"
             },
             "64bit": {
-                "url": "https://archive.apache.org/dist/tomcat/tomcat-8/v$version/bin/apache-tomcat-$version-windows-x64.zip"
+                "url": "https://www.apache.org/dist/tomcat/tomcat-8/v$version/bin/apache-tomcat-$version-windows-x64.zip"
             }
         },
         "hash": {
